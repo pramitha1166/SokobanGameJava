@@ -10,9 +10,9 @@ public class Map extends JPanel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	private final int OFFSET = 30;
-	private final int SPACE = 20;
+	private final int SPACE = 25;
 	private final int LEFT_COLLISION = 1;
 	private final int RIGHT_COLLISION = 2;
 	private final int TOP_COLLISION = 3;
@@ -30,19 +30,16 @@ public class Map extends JPanel {
 	/*# - wall, $ - crate, . = diamond, @ = keeper*/
 	
 	private String level
-		= "    ######\n"
-		+ "    ##   #\n"
-		+ "    ##$  #\n"
-		+ "  ####   $##\n"
-		+ "  ##  $ $ #\n"
-		+ "#### # ## #   ######\n"
-		+ "##   # ## #####  ..#\n"
-		+ "## $  $          ..#\n"
-		+ "###### ### #@##  ..#\n"
-		+ "    ##     #########\n"
-		+ "    ########\n";
+    ="##########\n"
+    +"#      # #\n"
+    +"#    @   #\n"
+    +"# $$#   .#\n"
+    +"#   #   .#\n"
+    +"##########\n";
 	
 	public Map() {
+
+		System.out.println("Sokoban");
 		initMap();
 	}
 	
@@ -94,6 +91,7 @@ public class Map extends JPanel {
 					diamond = new Diamond(x, y);
 					diamonds.add(diamond);
 					x += SPACE;
+					break;
 				case '@':
 					keeper = new WareHouseKeeper(x, y);
 					x += SPACE;
@@ -113,9 +111,19 @@ public class Map extends JPanel {
 		
 	}
 	
+	
+	public int getMapWidth() {
+		return this.w;
+	}
+	
+	public int getMapHeight() {
+		return this.h;
+	}
+	
+	
 	private void buildWorld(Graphics g) {
 		
-		g.setColor(new Color(250, 240, 170));
+		g.setColor(Color.LIGHT_GRAY);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
 		ArrayList<MapElement> world = new ArrayList<>();
@@ -130,17 +138,19 @@ public class Map extends JPanel {
 			MapElement element = world.get(i);
 			
 			if(element instanceof WareHouseKeeper || element instanceof Crate) {
-				g.drawImage(element.getImage(), element.x() + 2, element.y() + 2, this);
+				g.drawImage(element.getImage(), element.x() + 2, element.y() + 2,25,25, this);
 			} else {
-				g.drawImage(element.getImage(), element.x() + 2, element.y(), this);
+				g.drawImage(element.getImage(), element.x() + 2, element.y(),25,25, this);
 			}
 			
 		}
 		
 	}
+	
+	
 
 	@Override
-	public void paintComponents(Graphics g) {
+	public void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponents(g);
 		buildWorld(g);
