@@ -10,10 +10,10 @@ public class Wall extends MapElement {
 	
 	public Wall(int x, int y) {
 		super(x,y);
-		
+		createWall();
 	}
 	
-	public void createWall() {
+	private void createWall() {
 		ImageIcon icon = new ImageIcon("src/main/wall.png");
 		image = icon.getImage();
 		setImage(image);
