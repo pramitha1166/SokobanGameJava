@@ -1,4 +1,4 @@
-package main;
+package com.main;
 
 import java.awt.Image;
 
@@ -14,7 +14,7 @@ public class Diamond extends MapElement {
 	}
 	
 	private void createDiamond() {
-		ImageIcon icon = new ImageIcon("src/main/diamond.png");
+		ImageIcon icon = new ImageIcon("src/resources/diamond.png");
 		image = icon.getImage();
 		setImage(image);
 	}

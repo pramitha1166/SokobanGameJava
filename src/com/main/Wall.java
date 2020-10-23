@@ -1,4 +1,4 @@
-package main;
+package com.main;
 
 import java.awt.Image;
 
@@ -14,7 +14,7 @@ public class Wall extends MapElement {
 	}
 	
 	private void createWall() {
-		ImageIcon icon = new ImageIcon("src/main/wall.png");
+		ImageIcon icon = new ImageIcon("src/resources/wall.png");
 		image = icon.getImage();
 		setImage(image);
 	}

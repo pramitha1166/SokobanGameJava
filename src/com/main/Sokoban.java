@@ -1,4 +1,4 @@
-package main;
+package com.main;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -43,7 +43,7 @@ public class Sokoban extends JFrame {
 		EventQueue.invokeLater(() -> {
 			Sokoban sokoban = new Sokoban();
 			sokoban.setVisible(true);
-			System.out.println("Hello");
+			//System.out.println("Hello");
 		});
 		
 		

@@ -1,4 +1,4 @@
-package main;
+package com.main;
 
 import java.awt.Image;
 
@@ -14,7 +14,7 @@ public class Crate extends MapElement {
 	}
 	
 	private void createCrate() {
-		ImageIcon icon = new ImageIcon("src/main/crate.png");
+		ImageIcon icon = new ImageIcon("src/resources/crate.png");
 		image = icon.getImage();
 		setImage(image);
 	}

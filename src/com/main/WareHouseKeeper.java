@@ -1,4 +1,4 @@
-package main;
+package com.main;
 
 import java.awt.Image;
 
@@ -14,7 +14,7 @@ public class WareHouseKeeper extends MapElement {
 	}
 	
 	private void createWareHouseKeeper() {
-		ImageIcon icon = new ImageIcon("src/main/keeper.png");
+		ImageIcon icon = new ImageIcon("src/resources/keeper.png");
 		image = icon.getImage();
 		setImage(image);
 	}
