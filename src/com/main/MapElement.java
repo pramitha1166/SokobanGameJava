@@ -4,58 +4,63 @@ import java.awt.Image;
 
 public class MapElement {
 
-	private final int SPACE = 20;
-	
-	private int x;
-	private int y;
-	private Image image;
-	
-	public MapElement(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
+    private final int SPACE = 20;
 
-	public Image getImage() {
-		return image;
-	}
+    private int x;
+    private int y;
+    private Image image;
 
-	public void setImage(Image image) {
-		this.image = image;
-	}
-	
-	public int x() {
-		return x;
-	}
-	
-	public int y() {
-		return y;
-	}
+    public MapElement(int x, int y) {
+        
+        this.x = x;
+        this.y = y;
+    }
 
+    public Image getImage() {
+        return image;
+    }
 
-	public void setX(int x) {
-		this.x = x;
-	}
+    public void setImage(Image img) {
+        image = img;
+    }
 
+    public int x() {
+        
+        return x;
+    }
 
-	public void setY(int y) {
-		this.y = y;
-	}
-	
-	public boolean isLeftCollision(MapElement element) {
-		return x() - SPACE == element.x() && y() == element.y();
-	}
-	
-	public boolean isRightCollision(MapElement element) {
-		return x() + SPACE == element.x() && y() == element.y();
-	}
-	
-	public boolean isTopCollision(MapElement element) {
-		return x() == element.x() && y() - SPACE == element.y();
-	}
-	
-	public boolean isBottumCollision(MapElement element) {
-		return x() == element.x() && y() + SPACE == element.y();
-	}
-	
-	
+    public int y() {
+        
+        return y;
+    }
+
+    public void setX(int x) {
+        
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        
+        this.y = y;
+    }
+
+    public boolean isLeftCollision(MapElement actor) {
+        
+        return x() - SPACE == actor.x() && y() == actor.y();
+    }
+
+    public boolean isRightCollision(MapElement actor) {
+        
+        return x() + SPACE == actor.x() && y() == actor.y();
+    }
+
+    public boolean isTopCollision(MapElement actor) {
+        
+        return y() - SPACE == actor.y() && x() == actor.x();
+    }
+
+    public boolean isBottomCollision(MapElement actor) {
+        
+        return y() + SPACE == actor.y() && x() == actor.x();
+    }
 }
