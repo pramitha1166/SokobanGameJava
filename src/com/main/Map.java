@@ -141,7 +141,7 @@ public class Map extends JPanel {
             MapElement item = world.get(i);
 
             if (item instanceof WareHouseKeeper || item instanceof Crate) {
-                
+                System.out.println(item.x());
                 g.drawImage(item.getImage(), item.x() + 2, item.y() + 2,30,30, this);
             } else {
                 
