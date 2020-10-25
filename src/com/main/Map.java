@@ -6,6 +6,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Map extends JPanel {
@@ -25,16 +27,23 @@ public class Map extends JPanel {
     private int w = 0;
     private int h = 0;
     
+    int sokoX,sokoY;
+    
     private int numMove = 0;
+    
     
     private boolean isCompleted = false;
 
-    private String level = "";
+    int l=1;
 
-    public Map(String level) {
+    String level = "";
+    
+    SokobanGame game;
+    
+    public Map() {
 
-    	this.level = level;
         initMap();
+        //changeLevel();
     }
 
     private void initMap() {
@@ -53,7 +62,14 @@ public class Map extends JPanel {
     }
 
     private void initWorld() {
-        
+    	    	   	
+    	game = new SokobanGame();
+    	game.loadMap(l);
+    	
+    	level = game.getMap();
+    	
+    	System.out.println(l);
+    	
         walls = new ArrayList<>();
         crates = new ArrayList<>();
         diamonds = new ArrayList<>();
@@ -120,12 +136,7 @@ public class Map extends JPanel {
 
         g.setColor(Color.CYAN);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-
-        
-   
-        
-        
-        
+        g.drawString(String.valueOf(numMove), 100, 20);
         ArrayList<MapElement> world = new ArrayList<>();
 
         world.addAll(walls);
@@ -137,6 +148,7 @@ public class Map extends JPanel {
 
             MapElement item = world.get(i);
 
+            
             if (item instanceof WareHouseKeeper || item instanceof Crate) {
                 System.out.println(item.x());
                 g.drawImage(item.getImage(), item.x() + 2, item.y() + 2,30,30, this);
@@ -473,13 +485,29 @@ public class Map extends JPanel {
 
         if (finishedCrates == nOfCrates) {
             
-            isCompleted = true;
-            repaint();
+        	
+        	if(l==5) {
+        		JOptionPane.showMessageDialog(null, "You have finished all levels"+". number of step taken "+numMove);
+        		System.exit(0);
+        	}
+        	
+           // isCompleted = true;
+            JOptionPane.showMessageDialog(null, "You have finished level "+l+". number of step taken "+numMove);
+            numMove = 0;
+        	diamonds.clear();
+            crates.clear();
+            walls.clear();
+            l++;
+            //repaint();
+            initWorld();
+            
+            
         }
     }
 
     private void restartLevel() {
 
+    	numMove = 0;
     	diamonds.clear();
         crates.clear();
         walls.clear();
@@ -490,4 +518,15 @@ public class Map extends JPanel {
             isCompleted = false;
         }
     }
+    
+   /* public void changeLevel() {
+    	if (isCompleted==true) {
+    		JOptionPane.showMessageDialog(null, "You have finished level "+l+". number of stepp taken "+numMove);
+    		diamonds.clear();
+            crates.clear();
+            walls.clear();
+            l++;
+            initWorld();
+    	}
+    }*/
 }

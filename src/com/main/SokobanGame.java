@@ -1,8 +1,6 @@
 package com.main;
 
 public class SokobanGame {
-
-private Map myMap;
 	
 	String level ="";
 	
@@ -11,10 +9,10 @@ private Map myMap;
 	}
 	/*# - wall, $ - crate, . = diamond, @ = keeper*/
 
-	public void loadMap(String mapName) {
+	public void loadMap(int mapId) {
 		
-		switch(mapName) {
-			case "level1":
+		switch(mapId) {
+			case 1:
 				level
 				="##########\n"
 				+"#      # #\n"
@@ -22,37 +20,63 @@ private Map myMap;
 			    +"# $$#   .#\n"
 			    +"#   #   .#\n"
 			    +"##########\n";
-				myMap = new Map(level);
+				//myMap = new Map(level);
 				break;
-			case "level2":
+			case 2:
 				level
 				="##########\n"
 				+"#      ###\n"
-			    +"#    @   #\n"
+				+"#      ###\n"
+			    +"#   #@   #\n"
 			    +"# $$#   .#\n"
 			    +"#   #   .#\n"
 			    +"##########\n";
-				myMap = new Map(level);
+				//myMap = new Map(level);
 				break;
-			case "level3":
+			case 3:
+				level
+				="#########\n"
+			    +"### $ ..#\n"
+			    +"#   $   #\n"
+			    +"### @ $.#\n"
+			    +"#   $####\n"
+			    +"#.     ##\n"
+			    +"#       #\n"
+			    +"#########\n";
+				//myMap = new Map(level);
+				break;
+			case 4:
 				level
 				="##########\n"
-			    +"#####.####\n"
-			    +"#####$####\n"
-			    +"###.$@$.##\n"
-			    +"#####$####\n"
-			    +"#####.####\n"
+			    +"#..  $  ##\n"
+			    +"##   $  ##\n"
+			    +"###  @  .#\n"
+			    +"##   $ $ #\n"
+			    +"#####.   #\n"
 			    +"##########\n";
-				myMap = new Map(level);
+				//myMap = new Map(level);
 				break;
+			case 5:
+				level
+				="##########\n"
+			    +"#....    #\n"
+			    +"#####$ ###\n"
+			    +"### $ @  #\n"
+			    +"#        #\n"
+			    +"# $$     #\n"
+			    +"#        #\n"
+			    +"##########\n";
+				//myMap = new Map(level);
+				break;
+				
 			default:
 				break;	
 		}
 		
 	}
 	
-	public Map getMap() {
-		return myMap;
+	public String getMap() {
+		return level;
 	}
 
 	
