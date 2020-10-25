@@ -27,7 +27,6 @@ public class Map extends JPanel {
     private int w = 0;
     private int h = 0;
     
-    int sokoX,sokoY;
     
     private int numMove = 0;
     
