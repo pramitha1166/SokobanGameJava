@@ -6,13 +6,16 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Map extends JPanel {
 
-    private final int OFFSET = 40;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final int OFFSET = 40;
     private final int SPACE = 30;
     private final int LEFT_COLLISION = 1;
     private final int RIGHT_COLLISION = 2;
