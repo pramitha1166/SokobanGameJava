@@ -6,6 +6,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -65,6 +66,8 @@ public class Map extends JPanel {
 
     private void initWorld() {
     	    	   	
+    	add(new JLabel("Press R to Reset"));
+    	
     	game = new SokobanGame();
     	game.loadMap(l);
     	
