@@ -2,15 +2,19 @@ package com.main;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Map extends JPanel {
 
-    private final int OFFSET = 30;
-    private final int SPACE = 20;
+    private final int OFFSET = 40;
+    private final int SPACE = 30;
     private final int LEFT_COLLISION = 1;
     private final int RIGHT_COLLISION = 2;
     private final int TOP_COLLISION = 3;
@@ -23,6 +27,8 @@ public class Map extends JPanel {
     private WareHouseKeeper soko;
     private int w = 0;
     private int h = 0;
+    
+    private int numMove = 0;
     
     private boolean isCompleted = false;
 
@@ -115,9 +121,14 @@ public class Map extends JPanel {
 
     private void buildWorld(Graphics g) {
 
-        g.setColor(new Color(250, 240, 170));
+        g.setColor(Color.CYAN);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
+        
+   
+        
+        
+        
         ArrayList<MapElement> world = new ArrayList<>();
 
         world.addAll(walls);
@@ -131,16 +142,17 @@ public class Map extends JPanel {
 
             if (item instanceof WareHouseKeeper || item instanceof Crate) {
                 
-                g.drawImage(item.getImage(), item.x() + 2, item.y() + 2,20,20, this);
+                g.drawImage(item.getImage(), item.x() + 2, item.y() + 2,30,30, this);
             } else {
                 
-                g.drawImage(item.getImage(), item.x(), item.y(),20,20, this);
+                g.drawImage(item.getImage(), item.x(), item.y(),30,30, this);
             }
 
             if (isCompleted) {
                 
                 g.setColor(new Color(0, 0, 0));
                 g.drawString("Completed", 25, 20);
+                g.drawString(String.valueOf(numMove), 100, 20);
             }
 
         }
@@ -177,6 +189,7 @@ public class Map extends JPanel {
                         return;
                     }
                     
+                    numMove++;
                     soko.move(-SPACE, 0);
                     
                     break;
@@ -191,6 +204,7 @@ public class Map extends JPanel {
                         return;
                     }
                     
+                    numMove++;
                     soko.move(SPACE, 0);
                     
                     break;
@@ -205,6 +219,7 @@ public class Map extends JPanel {
                         return;
                     }
                     
+                    numMove++;
                     soko.move(0, -SPACE);
                     
                     break;
@@ -219,6 +234,7 @@ public class Map extends JPanel {
                         return;
                     }
                     
+                    numMove++;
                     soko.move(0, SPACE);
                     
                     break;

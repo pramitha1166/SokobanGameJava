@@ -4,7 +4,7 @@ import java.awt.Image;
 
 public class MapElement {
 
-    private final int SPACE = 20;
+    private final int SPACE = 30;
 
     private int x;
     private int y;
