@@ -38,6 +38,11 @@ public class Map extends JPanel {
     private boolean isCompleted = false;
 
     int l=1;
+    
+
+    JLabel label1 = new JLabel("| Level "+l);
+    JLabel label2 = new JLabel("Press R to Reset");
+    JLabel label3 = new JLabel("| Number of Move "+numMove);
 
     String level = "";
     
@@ -66,8 +71,10 @@ public class Map extends JPanel {
 
     private void initWorld() {
     	    	   	
-    	add(new JLabel("Press R to Reset"));
     	
+    	add(label2);
+    	add(label1);
+    	add(label3);
     	game = new SokobanGame();
     	game.loadMap(l);
     	
@@ -155,7 +162,7 @@ public class Map extends JPanel {
 
             
             if (item instanceof WareHouseKeeper || item instanceof Crate) {
-                System.out.println(item.x());
+                //System.out.println(item.x());
                 g.drawImage(item.getImage(), item.x() + 2, item.y() + 2,30,30, this);
             } else {
                 
@@ -204,6 +211,7 @@ public class Map extends JPanel {
                     }
                     
                     numMove++;
+                    label3.setText("| Number of Move: "+String.valueOf(numMove));
                     soko.move(-SPACE, 0);
                     
                     break;
@@ -219,6 +227,7 @@ public class Map extends JPanel {
                     }
                     
                     numMove++;
+                    label3.setText("| Number of Move: "+String.valueOf(numMove));
                     soko.move(SPACE, 0);
                     
                     break;
@@ -234,6 +243,7 @@ public class Map extends JPanel {
                     }
                     
                     numMove++;
+                    label3.setText("| Number of Move: "+String.valueOf(numMove));
                     soko.move(0, -SPACE);
                     
                     break;
@@ -249,6 +259,7 @@ public class Map extends JPanel {
                     }
                     
                     numMove++;
+                    label3.setText("| Number of Move: "+String.valueOf(numMove));
                     soko.move(0, SPACE);
                     
                     break;
@@ -503,7 +514,8 @@ public class Map extends JPanel {
             crates.clear();
             walls.clear();
             l++;
-            //repaint();
+            repaint();
+            label1.setText("| level"+l);
             initWorld();
             
             
