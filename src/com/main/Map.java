@@ -42,7 +42,7 @@ public class Map extends JPanel {
 
     JLabel label1 = new JLabel("| Level "+l);
     JLabel label2 = new JLabel("Press R to Reset");
-    JLabel label3 = new JLabel("| Number of Move "+numMove);
+    JLabel label3 = new JLabel("| Number of Move "+0);
 
     String level = "";
     
@@ -71,7 +71,7 @@ public class Map extends JPanel {
 
     private void initWorld() {
     	    	   	
-    	
+    	numMove = 0;
     	add(label2);
     	add(label1);
     	add(label3);
@@ -503,13 +503,13 @@ public class Map extends JPanel {
             
         	
         	if(l==5) {
-        		JOptionPane.showMessageDialog(null, "You have finished all levels"+". number of step taken "+numMove);
+        		JOptionPane.showMessageDialog(null, "Well done. You have finished all levels");
         		System.exit(0);
         	}
         	
            // isCompleted = true;
             JOptionPane.showMessageDialog(null, "You have finished level "+l+". number of step taken "+numMove);
-            numMove = 0;
+            numMove = -1;
         	diamonds.clear();
             crates.clear();
             walls.clear();
